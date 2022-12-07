@@ -71,6 +71,9 @@ class _EmojiPanelState extends State<StickerPanel> {
             horizontal: 8,
             vertical: 2,
           ),
+          margin: const EdgeInsets.only(
+            right: 4,
+          ),
           decoration: BoxDecoration(
             color: selectedIdx == index
                 ? widget.lightPrimaryColor
@@ -154,6 +157,9 @@ class _EmojiPanelState extends State<StickerPanel> {
     }
 
     return GridView(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 16,
+      ),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 4,
         childAspectRatio: 1,
@@ -240,22 +246,19 @@ class _EmojiPanelState extends State<StickerPanel> {
       },
       child: Column(
         children: [
-          SizedBox(
-            height: 200,
+          Expanded(
             child: _buildEmojiPanel(
               textEmojiIndexList,
               widget.customStickerPackageList,
             ),
           ),
-          Expanded(
-            child: SizedBox(
-              height: 48,
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                child: _buildBottomPanel(
-                  textEmojiIndexList,
-                  widget.customStickerPackageList,
-                ),
+          SizedBox(
+            height: 48,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+              child: _buildBottomPanel(
+                textEmojiIndexList,
+                widget.customStickerPackageList,
               ),
             ),
           ),
@@ -284,9 +287,12 @@ class EmojiItem extends StatelessWidget {
 }
 
 class CustomEmojiItem extends StatefulWidget {
-  const CustomEmojiItem(
-      {Key? key, required this.sticker, this.baseUrl, this.isBigImage = false})
-      : super(key: key);
+  const CustomEmojiItem({
+    Key? key,
+    required this.sticker,
+    this.baseUrl,
+    this.isBigImage = false,
+  }) : super(key: key);
 
   final CustomSticker sticker;
   final String? baseUrl;
@@ -366,11 +372,13 @@ class _CustomEmojiItemState extends State<CustomEmojiItem> {
       _buildFirstFrameFromNetworkImg(url);
     }
     if (isImgAnimated && !isImgFromNetwork) {
-      _buildFirstFrameFromLocalImg(Image.asset(
-        url,
-        height: size,
-        width: size,
-      ).image);
+      _buildFirstFrameFromLocalImg(
+        Image.asset(
+          url,
+          height: size,
+          width: size,
+        ).image,
+      );
     }
     if (!isImgAnimated && isImgFromNetwork) {
       img = CachedNetworkImage(
