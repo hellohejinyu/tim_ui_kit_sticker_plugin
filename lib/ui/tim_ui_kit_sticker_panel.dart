@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:tencent_im_base/i18n/i18n_utils.dart';
@@ -66,35 +67,37 @@ class _EmojiPanelState extends State<StickerPanel> {
       final customEmojiFace = customStickerList[index];
 
       list.add(
-        Container(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 8,
-            vertical: 2,
-          ),
-          margin: const EdgeInsets.only(
-            right: 4,
-          ),
-          decoration: BoxDecoration(
-            color: selectedIdx == index
-                ? widget.lightPrimaryColor
-                : widget.backgroundColor,
-            borderRadius: const BorderRadius.all(Radius.circular(4)),
-          ),
-          child: InkWell(
-            onTap: () {
-              setState(() {
-                selectedIdx = index;
-              });
-            },
-            child: customEmojiFace.isCustomSticker
-                ? CustomEmojiItem(
-                    sticker: customEmojiFace.menuItem,
-                    baseUrl: customEmojiFace.baseUrl,
-                  )
-                : EmojiItem(
-                    name: customEmojiFace.menuItem.name,
-                    unicode: customEmojiFace.menuItem.unicode!,
-                  ),
+        GestureDetector(
+          onTap: () {
+            setState(() {
+              selectedIdx = index;
+            });
+          },
+          child: Container(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 8,
+            ),
+            height: 40,
+            margin: const EdgeInsets.only(
+              right: 4,
+            ),
+            decoration: BoxDecoration(
+              color: selectedIdx == index
+                  ? widget.lightPrimaryColor
+                  : widget.backgroundColor,
+              borderRadius: const BorderRadius.all(Radius.circular(4)),
+            ),
+            child: Center(
+              child: customEmojiFace.isCustomSticker
+                  ? CustomEmojiItem(
+                      sticker: customEmojiFace.menuItem,
+                      baseUrl: customEmojiFace.baseUrl,
+                    )
+                  : EmojiItem(
+                      name: customEmojiFace.menuItem.name,
+                      unicode: customEmojiFace.menuItem.unicode!,
+                    ),
+            ),
           ),
         ),
       );
@@ -119,10 +122,10 @@ class _EmojiPanelState extends State<StickerPanel> {
     }
     if (textEmojiIndexList.contains(selectedIdx)) {
       return GridView(
+        key: ValueKey(selectedIdx),
         padding: const EdgeInsets.symmetric(
           horizontal: 16,
         ),
-        physics: const ClampingScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: widget.crossAxisCount,
           childAspectRatio: 1,
@@ -157,6 +160,7 @@ class _EmojiPanelState extends State<StickerPanel> {
     }
 
     return GridView(
+      key: ValueKey(selectedIdx),
       padding: const EdgeInsets.symmetric(
         horizontal: 16,
       ),
@@ -240,29 +244,38 @@ class _EmojiPanelState extends State<StickerPanel> {
   @override
   Widget build(BuildContext context) {
     filterTextEmojiIndexList();
-    return GestureDetector(
-      onTap: () {
-        /// 阻止点击空白区域导致表情 Panel 被关闭
-      },
-      child: Column(
-        children: [
-          Expanded(
-            child: _buildEmojiPanel(
-              textEmojiIndexList,
-              widget.customStickerPackageList,
-            ),
-          ),
-          SizedBox(
-            height: 48,
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-              child: _buildBottomPanel(
+    return DelayedDisplay(
+      delay: const Duration(milliseconds: 100),
+      fadingDuration: const Duration(milliseconds: 300),
+      slidingBeginOffset: const Offset(0.0, 0.05),
+      child: GestureDetector(
+        onTap: () {
+          /// 阻止点击空白区域导致表情 Panel 被关闭
+        },
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Expanded(
+              child: _buildEmojiPanel(
                 textEmojiIndexList,
                 widget.customStickerPackageList,
               ),
             ),
-          ),
-        ],
+            SizedBox(
+              height: 48,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: _buildBottomPanel(
+                  textEmojiIndexList,
+                  widget.customStickerPackageList,
+                ),
+              ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).padding.bottom,
+            ),
+          ],
+        ),
       ),
     );
   }
