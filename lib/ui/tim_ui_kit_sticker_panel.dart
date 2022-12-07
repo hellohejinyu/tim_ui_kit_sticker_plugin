@@ -15,29 +15,25 @@ class StickerPanel extends StatefulWidget {
   final Widget? emptyPlaceHolder;
   final void Function(BuildContext context, LayerLink layerLink,
       int selectedPackageIdx, CustomSticker selectedSticker)? onLongTap;
-  final bool showBottomContainer;
   final int crossAxisCount;
-  final bool showDeleteButton;
   final Color? backgroundColor;
   final Color? lightPrimaryColor;
   final EdgeInsetsGeometry? panelPadding;
 
-  const StickerPanel(
-      {Key? key,
-      required this.sendTextMsg,
-      required this.sendFaceMsg,
-      required this.deleteText,
-      required this.addText,
-      required this.customStickerPackageList,
-      this.emptyPlaceHolder,
-      this.onLongTap,
-      this.backgroundColor = const Color(0xFFEDEDED),
-      this.lightPrimaryColor = const Color(0xFF3371CD),
-      this.showBottomContainer = true,
-      this.showDeleteButton = true,
-      this.crossAxisCount = 8,
-      this.panelPadding})
-      : super(key: key);
+  const StickerPanel({
+    Key? key,
+    required this.sendTextMsg,
+    required this.sendFaceMsg,
+    required this.deleteText,
+    required this.addText,
+    required this.customStickerPackageList,
+    this.emptyPlaceHolder,
+    this.onLongTap,
+    this.backgroundColor = const Color(0xFFEDEDED),
+    this.lightPrimaryColor = const Color(0xFF3371CD),
+    this.crossAxisCount = 8,
+    this.panelPadding,
+  }) : super(key: key);
   @override
   State<StatefulWidget> createState() => _EmojiPanelState();
 }
@@ -63,32 +59,42 @@ class _EmojiPanelState extends State<StickerPanel> {
   }
 
   List<Widget> _buildEmojiListWidget(
-      List<CustomStickerPackage> customStickerList) {
+    List<CustomStickerPackage> customStickerList,
+  ) {
     List<Widget> list = [];
     for (var index = 0; index < (customStickerList.length); index++) {
       final customEmojiFace = customStickerList[index];
 
-      list.add(Container(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+      list.add(
+        Container(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 8,
+            vertical: 2,
+          ),
           decoration: BoxDecoration(
-              color: selectedIdx == index
-                  ? widget.lightPrimaryColor
-                  : widget.backgroundColor,
-              borderRadius: const BorderRadius.all(Radius.circular(4))),
+            color: selectedIdx == index
+                ? widget.lightPrimaryColor
+                : widget.backgroundColor,
+            borderRadius: const BorderRadius.all(Radius.circular(4)),
+          ),
           child: InkWell(
-              onTap: () {
-                setState(() {
-                  selectedIdx = index;
-                });
-              },
-              child: customEmojiFace.isCustomSticker
-                  ? CustomEmojiItem(
-                      sticker: customEmojiFace.menuItem,
-                      baseUrl: customEmojiFace.baseUrl)
-                  : EmojiItem(
-                      name: customEmojiFace.menuItem.name,
-                      unicode: customEmojiFace.menuItem.unicode!,
-                    ))));
+            onTap: () {
+              setState(() {
+                selectedIdx = index;
+              });
+            },
+            child: customEmojiFace.isCustomSticker
+                ? CustomEmojiItem(
+                    sticker: customEmojiFace.menuItem,
+                    baseUrl: customEmojiFace.baseUrl,
+                  )
+                : EmojiItem(
+                    name: customEmojiFace.menuItem.name,
+                    unicode: customEmojiFace.menuItem.unicode!,
+                  ),
+          ),
+        ),
+      );
     }
     return list;
   }
@@ -99,69 +105,54 @@ class _EmojiPanelState extends State<StickerPanel> {
     if (customStickerList[selectedIdx].stickerList.isEmpty) {
       return widget.emptyPlaceHolder ??
           Center(
-            child: Text(TIM_t("暂无表情"),
-                style: const TextStyle(color: Colors.black12, fontSize: 24)),
+            child: Text(
+              TIM_t("暂无表情"),
+              style: const TextStyle(
+                color: Colors.black12,
+                fontSize: 24,
+              ),
+            ),
           );
     }
     if (textEmojiIndexList.contains(selectedIdx)) {
-      return Stack(
+      return GridView(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 16,
+        ),
+        physics: const ClampingScrollPhysics(),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: widget.crossAxisCount,
+          childAspectRatio: 1,
+        ),
         children: [
-          GridView(
-            physics: const ClampingScrollPhysics(),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: widget.crossAxisCount,
-              childAspectRatio: 1,
-            ),
-            children: [
-              ...customStickerList[selectedIdx].stickerList.map(
-                (item) {
-                  LayerLink layerLink = LayerLink();
-                  return GestureDetector(
-                      onTap: () {
-                        widget.addText(item.unicode!);
-                      },
-                      onLongPressStart: (LongPressStartDetails details) {
-                        if (widget.onLongTap != null) {
-                          widget.onLongTap!(
-                              context, layerLink, selectedIdx, item);
-                        }
-                      },
-                      child: CompositedTransformTarget(
-                          link: layerLink,
-                          child: EmojiItem(
-                            name: item.name,
-                            unicode: item.unicode!,
-                          )));
+          ...customStickerList[selectedIdx].stickerList.map(
+            (item) {
+              LayerLink layerLink = LayerLink();
+              return GestureDetector(
+                onTap: () {
+                  widget.addText(item.unicode!);
                 },
-              ).toList()
-            ],
-          ),
-          if (widget.showDeleteButton)
-            Align(
-              alignment: Alignment.bottomRight,
-              child: SingleChildScrollView(
-                child: GestureDetector(
-                  onTap: () {
-                    widget.deleteText();
-                  },
-                  child: Container(
-                      color: widget.backgroundColor,
-                      margin: const EdgeInsets.only(right: 15),
-                      width: 35,
-                      child: Center(
-                        child: Image.asset(
-                          'images/delete_emoji.png',
-                          package: 'tim_ui_kit_sticker_plugin',
-                          width: 35,
-                          height: 20,
-                        ),
-                      )),
+                onLongPressStart: (LongPressStartDetails details) {
+                  if (widget.onLongTap != null) {
+                    widget.onLongTap!(context, layerLink, selectedIdx, item);
+                  }
+                },
+                child: CompositedTransformTarget(
+                  link: layerLink,
+                  child: Center(
+                    child: EmojiItem(
+                      name: item.name,
+                      unicode: item.unicode!,
+                    ),
+                  ),
                 ),
-              ),
-            ),
+              );
+            },
+          ).toList()
         ],
       );
     }
+
     return GridView(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 4,
@@ -171,57 +162,72 @@ class _EmojiPanelState extends State<StickerPanel> {
         (item) {
           LayerLink layerLink = LayerLink();
           return GestureDetector(
-              onTap: () {
-                widget.sendFaceMsg(
-                    item.index,
-                    customStickerList[selectedIdx].baseUrl == null
-                        ? item.url!
-                        : '${customStickerList[selectedIdx].baseUrl!}/${item.name}');
-              },
-              onLongPressStart: (LongPressStartDetails details) {
-                if (widget.onLongTap != null) {
-                  widget.onLongTap!(context, layerLink, selectedIdx, item);
-                }
-              },
-              child: Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: CompositedTransformTarget(
-                      link: layerLink,
-                      child: CustomEmojiItem(
-                          isBigImage: true,
-                          baseUrl: customStickerList[selectedIdx].baseUrl,
-                          sticker: item))));
+            onTap: () {
+              widget.sendFaceMsg(
+                  item.index,
+                  customStickerList[selectedIdx].baseUrl == null
+                      ? item.url!
+                      : '${customStickerList[selectedIdx].baseUrl!}/${item.name}');
+            },
+            onLongPressStart: (LongPressStartDetails details) {
+              if (widget.onLongTap != null) {
+                widget.onLongTap!(context, layerLink, selectedIdx, item);
+              }
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(8),
+              child: CompositedTransformTarget(
+                link: layerLink,
+                child: CustomEmojiItem(
+                  isBigImage: true,
+                  baseUrl: customStickerList[selectedIdx].baseUrl,
+                  sticker: item,
+                ),
+              ),
+            ),
+          );
         },
       ).toList(),
     );
   }
 
-  Widget _buildBottomPanel(List<int> textEmojiIndexList,
-      List<CustomStickerPackage> customStickerList) {
-    return SizedBox(
-      height: 40,
-      child: Row(
-        children: [
-          Expanded(
-              child: Container(
-                  margin: const EdgeInsets.only(right: 25),
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child:
-                        Row(children: _buildEmojiListWidget(customStickerList)),
-                  ))),
-          if (textEmojiIndexList.contains(selectedIdx))
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(),
-              onPressed: () {
-                widget.sendTextMsg();
-              },
-              child: Text(
-                TIM_t("发送"),
+  Widget _buildBottomPanel(
+    List<int> textEmojiIndexList,
+    List<CustomStickerPackage> customStickerList,
+  ) {
+    return Row(
+      children: [
+        Expanded(
+          child: Container(
+            margin: const EdgeInsets.only(right: 24),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: _buildEmojiListWidget(customStickerList),
               ),
             ),
-        ],
-      ),
+          ),
+        ),
+        if (textEmojiIndexList.contains(selectedIdx))
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white,
+              elevation: 0,
+              shadowColor: Colors.transparent,
+              padding: EdgeInsets.zero,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
+            onPressed: () {
+              widget.deleteText();
+            },
+            child: const Icon(
+              Icons.backspace_rounded,
+              color: Colors.black,
+            ),
+          ),
+      ],
     );
   }
 
@@ -229,26 +235,33 @@ class _EmojiPanelState extends State<StickerPanel> {
   Widget build(BuildContext context) {
     filterTextEmojiIndexList();
     return GestureDetector(
-        onTap: () {},
-        child: SingleChildScrollView(
-            child: Column(
-          children: [
-            Container(
-              height: widget.showBottomContainer ? 190 : 248,
-              color: widget.backgroundColor,
-              padding: widget.panelPadding ??
-                  const EdgeInsets.fromLTRB(24, 16, 24, 16),
-              child: _buildEmojiPanel(
-                  textEmojiIndexList, widget.customStickerPackageList),
+      onTap: () {
+        /// 阻止点击空白区域导致表情 Panel 被关闭
+      },
+      child: Column(
+        children: [
+          SizedBox(
+            height: 200,
+            child: _buildEmojiPanel(
+              textEmojiIndexList,
+              widget.customStickerPackageList,
             ),
-            widget.showBottomContainer
-                ? Container(
-                    margin: const EdgeInsets.fromLTRB(16, 0, 32, 0),
-                    child: _buildBottomPanel(
-                        textEmojiIndexList, widget.customStickerPackageList))
-                : Container()
-          ],
-        )));
+          ),
+          Expanded(
+            child: SizedBox(
+              height: 48,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+                child: _buildBottomPanel(
+                  textEmojiIndexList,
+                  widget.customStickerPackageList,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -284,7 +297,7 @@ class CustomEmojiItem extends StatefulWidget {
 }
 
 class _CustomEmojiItemState extends State<CustomEmojiItem> {
-// gif图片首帧
+  /// gif图片首帧
   ImageInfo? _imageInfo;
 
   @override
@@ -312,13 +325,13 @@ class _CustomEmojiItemState extends State<CustomEmojiItem> {
 
   double get size => widget.isBigImage! ? 60 : 30;
 
-  void _buildFristFrameFromNetworkImg(String url) async {
+  void _buildFirstFrameFromNetworkImg(String url) async {
     final cache = await DefaultCacheManager().getSingleFile(url);
     final data = await cache.readAsBytes();
     _getFirstFrame(data);
   }
 
-  void _buildFristFrameFromLocalImg(ImageProvider image) async {
+  void _buildFirstFrameFromLocalImg(ImageProvider image) async {
     dynamic data;
     if (image is AssetImage) {
       AssetBundleImageKey key =
@@ -350,10 +363,10 @@ class _CustomEmojiItemState extends State<CustomEmojiItem> {
     bool isImgAnimated = isAnimated();
     Widget? img;
     if (isImgAnimated && isImgFromNetwork) {
-      _buildFristFrameFromNetworkImg(url);
+      _buildFirstFrameFromNetworkImg(url);
     }
     if (isImgAnimated && !isImgFromNetwork) {
-      _buildFristFrameFromLocalImg(Image.asset(
+      _buildFirstFrameFromLocalImg(Image.asset(
         url,
         height: size,
         width: size,
@@ -374,12 +387,13 @@ class _CustomEmojiItemState extends State<CustomEmojiItem> {
       );
     }
     return Container(
-        child: isImgAnimated
-            ? RawImage(
-                image: _imageInfo?.image,
-                width: size,
-                height: size,
-              )
-            : img);
+      child: isImgAnimated
+          ? RawImage(
+              image: _imageInfo?.image,
+              width: size,
+              height: size,
+            )
+          : img,
+    );
   }
 }
