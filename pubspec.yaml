@@ -8,13 +8,13 @@ environment:
   flutter: ">=3.0.0"
 
 dependencies:
-  cached_network_image: ^3.2.0
-  delayed_display: ^2.0.0
   flutter:
     sdk: flutter
+  cached_network_image: ^3.2.0
+  delayed_display: ^2.0.0
   flutter_cache_manager: ^3.3.0
   tencent_im_base:
-    git: git@e.coding.net:micropoplar/proj-ourschool/tencent_im_base.git
+    git: git@github.com:hellohejinyu/tencent_im_base.git
 
 dev_dependencies:
   flutter_test:

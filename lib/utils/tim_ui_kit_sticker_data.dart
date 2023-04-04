@@ -15,8 +15,12 @@ class CustomStickerPackage {
 }
 
 class CustomSticker {
-  const CustomSticker(
-      {required this.name, required this.index, this.url, this.unicode});
+  const CustomSticker({
+    required this.name,
+    required this.index,
+    this.url,
+    this.unicode,
+  });
 
   final int? unicode;
   final String name;
