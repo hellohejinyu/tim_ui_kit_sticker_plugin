@@ -366,7 +366,7 @@ class _CustomEmojiItemState extends State<CustomEmojiItem> {
 
   void _getFirstFrame(dynamic data) async {
     var codec = await PaintingBinding.instance
-        .instantiateImageCodecFromBuffer(data.buffer.asUint8List());
+        .instantiateImageCodecWithSize(data.buffer.asUint8List());
     FrameInfo? frameInfo = await codec.getNextFrame();
     if (mounted) {
       setState(() {

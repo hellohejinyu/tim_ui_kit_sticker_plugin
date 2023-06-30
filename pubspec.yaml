@@ -10,9 +10,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cached_network_image: ^3.2.0
+  cached_network_image:
+    git:
+      url: https://github.com/Carapacik/flutter_cached_network_image.git
+      ref: actual
+      path: cached_network_image
   delayed_display: ^2.0.0
-  flutter_cache_manager: ^3.3.0
+  flutter_cache_manager:
+    git:
+      url: https://github.com/Carapacik/flutter_cache_manager.git
+      path: flutter_cache_manager
   tencent_im_base:
     git: git@github.com:hellohejinyu/tencent_im_base.git
 
