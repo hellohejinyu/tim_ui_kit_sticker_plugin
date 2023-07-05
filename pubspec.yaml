@@ -16,17 +16,14 @@ dependencies:
       ref: actual
       path: cached_network_image
   delayed_display: ^2.0.0
-  flutter_cache_manager:
-    git:
-      url: https://github.com/Carapacik/flutter_cache_manager.git
-      path: flutter_cache_manager
+  flutter_cache_manager: ^3.3.1
   tencent_im_base:
     git: git@github.com:hellohejinyu/tencent_im_base.git
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.1
+  flutter_lints: ^2.0.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
