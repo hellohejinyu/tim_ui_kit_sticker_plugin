@@ -33,19 +33,19 @@
     },
     {
       "name": "cached_network_image",
-      "rootUri": "file:///Users/Jinyu/.pub-cache/git/flutter_cached_network_image-f5c2fe9d24d4dd39a68ab2e0fc9b06ab65ff3d20/cached_network_image",
+      "rootUri": "file:///Users/Jinyu/.pub-cache/git/flutter_cached_network_image-8663b618f0d1ec734400a6c75048679d39d68647/cached_network_image",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "cached_network_image_platform_interface",
-      "rootUri": "file:///Users/Jinyu/.pub-cache/git/flutter_cached_network_image-f5c2fe9d24d4dd39a68ab2e0fc9b06ab65ff3d20/cached_network_image_platform_interface",
+      "rootUri": "file:///Users/Jinyu/.pub-cache/git/flutter_cached_network_image-8663b618f0d1ec734400a6c75048679d39d68647/cached_network_image_platform_interface",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "cached_network_image_web",
-      "rootUri": "file:///Users/Jinyu/.pub-cache/git/flutter_cached_network_image-f5c2fe9d24d4dd39a68ab2e0fc9b06ab65ff3d20/cached_network_image_web",
+      "rootUri": "file:///Users/Jinyu/.pub-cache/git/flutter_cached_network_image-8663b618f0d1ec734400a6c75048679d39d68647/cached_network_image_web",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -117,9 +117,9 @@
     },
     {
       "name": "file",
-      "rootUri": "file:///Users/Jinyu/.pub-cache/hosted/pub.dev/file-6.1.4",
+      "rootUri": "file:///Users/Jinyu/.pub-cache/hosted/pub.dev/file-7.0.0",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "3.0"
     },
     {
       "name": "flutter",
@@ -249,7 +249,7 @@
     },
     {
       "name": "path_provider_foundation",
-      "rootUri": "file:///Users/Jinyu/.pub-cache/hosted/pub.dev/path_provider_foundation-2.2.3",
+      "rootUri": "file:///Users/Jinyu/.pub-cache/hosted/pub.dev/path_provider_foundation-2.2.4",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -279,15 +279,9 @@
     },
     {
       "name": "plugin_platform_interface",
-      "rootUri": "file:///Users/Jinyu/.pub-cache/hosted/pub.dev/plugin_platform_interface-2.1.4",
+      "rootUri": "file:///Users/Jinyu/.pub-cache/hosted/pub.dev/plugin_platform_interface-2.1.5",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
-    },
-    {
-      "name": "process",
-      "rootUri": "file:///Users/Jinyu/.pub-cache/hosted/pub.dev/process-4.2.4",
-      "packageUri": "lib/",
-      "languageVersion": "2.14"
+      "languageVersion": "2.18"
     },
     {
       "name": "pub_semver",
@@ -405,15 +399,15 @@
     },
     {
       "name": "win32",
-      "rootUri": "file:///Users/Jinyu/.pub-cache/hosted/pub.dev/win32-5.0.5",
+      "rootUri": "file:///Users/Jinyu/.pub-cache/hosted/pub.dev/win32-5.0.6",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
     {
       "name": "xdg_directories",
-      "rootUri": "file:///Users/Jinyu/.pub-cache/hosted/pub.dev/xdg_directories-1.0.0",
+      "rootUri": "file:///Users/Jinyu/.pub-cache/hosted/pub.dev/xdg_directories-1.0.1",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "2.18"
     },
     {
       "name": "yaml",
@@ -428,7 +422,7 @@
       "languageVersion": "2.15"
     }
   ],
-  "generated": "2023-07-25T09:42:04.885168Z",
+  "generated": "2023-07-25T09:46:56.302121Z",
   "generator": "pub",
   "generatorVersion": "3.0.6"
 }
