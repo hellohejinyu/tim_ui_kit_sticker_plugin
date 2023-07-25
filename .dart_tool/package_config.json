@@ -32,24 +32,6 @@
       "languageVersion": "2.19"
     },
     {
-      "name": "cached_network_image",
-      "rootUri": "file:///Users/Jinyu/.pub-cache/git/flutter_cached_network_image-8663b618f0d1ec734400a6c75048679d39d68647/cached_network_image",
-      "packageUri": "lib/",
-      "languageVersion": "2.18"
-    },
-    {
-      "name": "cached_network_image_platform_interface",
-      "rootUri": "file:///Users/Jinyu/.pub-cache/git/flutter_cached_network_image-8663b618f0d1ec734400a6c75048679d39d68647/cached_network_image_platform_interface",
-      "packageUri": "lib/",
-      "languageVersion": "2.18"
-    },
-    {
-      "name": "cached_network_image_web",
-      "rootUri": "file:///Users/Jinyu/.pub-cache/git/flutter_cached_network_image-8663b618f0d1ec734400a6c75048679d39d68647/cached_network_image_web",
-      "packageUri": "lib/",
-      "languageVersion": "2.18"
-    },
-    {
       "name": "characters",
       "rootUri": "file:///Users/Jinyu/.pub-cache/hosted/pub.dev/characters-1.3.0",
       "packageUri": "lib/",
@@ -98,6 +80,18 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "extended_image",
+      "rootUri": "file:///Users/Jinyu/.pub-cache/hosted/pub.dev/extended_image-8.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "extended_image_library",
+      "rootUri": "file:///Users/Jinyu/.pub-cache/hosted/pub.dev/extended_image_library-3.5.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
       "name": "fake_async",
       "rootUri": "file:///Users/Jinyu/.pub-cache/hosted/pub.dev/fake_async-1.3.1",
       "packageUri": "lib/",
@@ -126,12 +120,6 @@
       "rootUri": "file:///Users/Jinyu/flutter/packages/flutter",
       "packageUri": "lib/",
       "languageVersion": "3.0"
-    },
-    {
-      "name": "flutter_blurhash",
-      "rootUri": "file:///Users/Jinyu/.pub-cache/hosted/pub.dev/flutter_blurhash-0.7.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.15"
     },
     {
       "name": "flutter_cache_manager",
@@ -168,6 +156,12 @@
       "rootUri": "file:///Users/Jinyu/.pub-cache/hosted/pub.dev/http-1.1.0",
       "packageUri": "lib/",
       "languageVersion": "3.0"
+    },
+    {
+      "name": "http_client_helper",
+      "rootUri": "file:///Users/Jinyu/.pub-cache/hosted/pub.dev/http_client_helper-3.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "http_parser",
@@ -214,12 +208,6 @@
     {
       "name": "meta",
       "rootUri": "file:///Users/Jinyu/.pub-cache/hosted/pub.dev/meta-1.9.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "octo_image",
-      "rootUri": "file:///Users/Jinyu/.pub-cache/hosted/pub.dev/octo_image-1.0.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -422,7 +410,7 @@
       "languageVersion": "2.15"
     }
   ],
-  "generated": "2023-07-25T09:46:56.302121Z",
+  "generated": "2023-07-25T10:08:49.582053Z",
   "generator": "pub",
   "generatorVersion": "3.0.6"
 }

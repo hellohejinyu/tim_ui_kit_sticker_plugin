@@ -37,27 +37,6 @@
             </list>
           </value>
         </entry>
-        <entry key="cached_network_image">
-          <value>
-            <list>
-              <option value="$USER_HOME$/.pub-cache/git/flutter_cached_network_image-8663b618f0d1ec734400a6c75048679d39d68647/cached_network_image/lib" />
-            </list>
-          </value>
-        </entry>
-        <entry key="cached_network_image_platform_interface">
-          <value>
-            <list>
-              <option value="$USER_HOME$/.pub-cache/git/flutter_cached_network_image-8663b618f0d1ec734400a6c75048679d39d68647/cached_network_image_platform_interface/lib" />
-            </list>
-          </value>
-        </entry>
-        <entry key="cached_network_image_web">
-          <value>
-            <list>
-              <option value="$USER_HOME$/.pub-cache/git/flutter_cached_network_image-8663b618f0d1ec734400a6c75048679d39d68647/cached_network_image_web/lib" />
-            </list>
-          </value>
-        </entry>
         <entry key="characters">
           <value>
             <list>
@@ -121,6 +100,20 @@
             </list>
           </value>
         </entry>
+        <entry key="extended_image">
+          <value>
+            <list>
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/extended_image-8.0.2/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="extended_image_library">
+          <value>
+            <list>
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/extended_image_library-3.5.3/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="fake_async">
           <value>
             <list>
@@ -153,13 +146,6 @@
           <value>
             <list>
               <option value="$USER_HOME$/flutter/packages/flutter/lib" />
-            </list>
-          </value>
-        </entry>
-        <entry key="flutter_blurhash">
-          <value>
-            <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/flutter_blurhash-0.7.0/lib" />
             </list>
           </value>
         </entry>
@@ -203,6 +189,13 @@
           <value>
             <list>
               <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/http-1.1.0/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="http_client_helper">
+          <value>
+            <list>
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/http_client_helper-3.0.0/lib" />
             </list>
           </value>
         </entry>
@@ -260,13 +253,6 @@
           <value>
             <list>
               <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/meta-1.9.1/lib" />
-            </list>
-          </value>
-        </entry>
-        <entry key="octo_image">
-          <value>
-            <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/octo_image-1.0.2/lib" />
             </list>
           </value>
         </entry>
@@ -497,9 +483,6 @@
       </option>
     </properties>
     <CLASSES>
-      <root url="file://$USER_HOME$/.pub-cache/git/flutter_cached_network_image-8663b618f0d1ec734400a6c75048679d39d68647/cached_network_image/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/git/flutter_cached_network_image-8663b618f0d1ec734400a6c75048679d39d68647/cached_network_image_platform_interface/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/git/flutter_cached_network_image-8663b618f0d1ec734400a6c75048679d39d68647/cached_network_image_web/lib" />
       <root url="file://$USER_HOME$/.pub-cache/git/tencent_im_base-cc7f1e45f8275f84f2dcd7b3bdf6dc8fa64e2fb7//lib" />
       <root url="file://$USER_HOME$/.pub-cache/git/tencent_im_sdk_plugin-e933aaadca961ffc9d2ba0b369aaa9a643cb555c//lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/_fe_analyzer_shared-62.0.0/lib" />
@@ -516,16 +499,18 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/cupertino_icons-1.0.5/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/dart_internal-0.2.8/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/delayed_display-2.0.0/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/extended_image-8.0.2/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/extended_image_library-3.5.3/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/fake_async-1.3.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/fast_i18n-5.12.6/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/ffi-2.0.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/file-7.0.0/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/flutter_blurhash-0.7.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/flutter_cache_manager-3.3.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/flutter_lints-1.0.4/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/flutter_lints-2.0.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/glob-2.1.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/http-1.1.0/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/http_client_helper-3.0.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/http_parser-4.0.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/js-0.6.7/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/json_annotation-4.8.1/lib" />
@@ -535,7 +520,6 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/matcher-0.12.15/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/material_color_utilities-0.2.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/meta-1.9.1/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/octo_image-1.0.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/package_config-2.1.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/path-1.8.3/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/path_provider-2.0.15/lib" />

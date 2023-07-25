@@ -1,7 +1,7 @@
 import 'dart:ui';
 
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:delayed_display/delayed_display.dart';
+import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:tencent_im_base/i18n/i18n_utils.dart';
@@ -394,8 +394,8 @@ class _CustomEmojiItemState extends State<CustomEmojiItem> {
       );
     }
     if (!isImgAnimated && isImgFromNetwork) {
-      img = CachedNetworkImage(
-        imageUrl: url,
+      img = ExtendedImage.network(
+        url,
         height: size,
         width: size,
       );
