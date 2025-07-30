@@ -1,10 +1,10 @@
 name: tim_ui_kit_sticker_plugin
 description: This extention provides the sticker choosing panel, allows users to send emoji sticker in text messages or dynamic sticker in face message.
-version: 0.0.11
+version: 0.0.12
 publish_to: none
 
 environment:
-  sdk: ">=2.15.0 <3.0.0"
+  sdk: ">=2.15.0 <4.0.0"
   flutter: ">=3.0.0"
 
 dependencies:
@@ -13,7 +13,7 @@ dependencies:
   delayed_display: ^2.0.0
   flutter_cache_manager: ^3.3.1
   tencent_im_base:
-    git: git@github.com:hellohejinyu/tencent_im_base.git
+    git: https://github.com/hellohejinyu/tencent_im_base.git
   extended_image: ^9.0.7
 
 dev_dependencies:
